@@ -1,9 +1,6 @@
-# logic
+logic
 Digital Logic Python Functions
-<<<<<<< HEAD
 
-=======
->>>>>>> dev_branch
 <ul>
   <li>Truth Table Function to generate 2^n size table based on n bits.</li>
   <li>Column Output Functions to assign Truth Table columns to variable names.</li>
