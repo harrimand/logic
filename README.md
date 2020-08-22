@@ -1,4 +1,5 @@
-logic
+# Logic
+
 Digital Logic Python Functions
 
 <ul>
