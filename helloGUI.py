@@ -2,7 +2,7 @@
 # helloGUI.py
 
 import PySimpleGUI as sg
-
+from qm import *
 
 gc = [n ^ n>>1 for n in range(16)]
 
@@ -39,6 +39,9 @@ for r in KM:
     bL.append(R)
 
 layout = layout + bL
+
+layout.append([sg.Output(size=(34, 10), key="-out-")])
+
 layout.append([sg.Button("OK")])
 
 #-End Button Layout--------------------------------------------------------------------------------
@@ -52,7 +55,7 @@ window = sg.Window("Demo", layout)
 # Create an event loop
 while True:
     event, values = window.read()
-    print(event, values)
+    # print(event, values)
     # End program if user closes window or
     # presses the OK button
     if event == "OK" or event == sg.WIN_CLOSED:
@@ -60,8 +63,13 @@ while True:
     if event in [str(n) for n in range(16)]:
         bc[int(event)] = (bc[int(event)] + 1) % 3
         window[event].update(button_color = bcolors[bc[int(event)]])
-        print("Imps:        ", getImps(bc))
-        print("Don't Cares: ", getDontCares(bc))
+        window['-out-'].update('')
+#        print("Imps:        ", getImps(bc))
+        print("Unsimplified: ")
+        print(tt2usop(getImps(bc)))
+#        print("Don't Cares: ", getDontCares(bc))
+        print(" ")
+        print("Simplified: ")
+        print(tt2ssop(getImps(bc), getDontCares(bc)))
 
 window.close()
-
