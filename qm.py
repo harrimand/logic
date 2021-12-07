@@ -299,13 +299,10 @@ def tt2ssop(data, dontCare):
         done = True
         TempDict = {}
         for b1 in bDict:
-
             newList = []
             if (b1+1) in bDict:
                 for h, bt in enumerate(bDict[b1]):
-
                     for i, b2 in enumerate(bDict[b1+1]):
-
                         res = compBin(bt, b2)
                         if res != "":
                             done = False
@@ -363,7 +360,7 @@ def tt2ssop(data, dontCare):
         SOPstring += t
         if i < (len(essList) - 1):
             SOPstring += " + "
-    return SOPstring
+    return SOPstring if len(SOPstring) > 0 else '1'
 #------------------------------------------------------------
 '''
     for i, p in enumerate(impList):
